@@ -1,0 +1,3 @@
+Main-Class: EncryptedClient
+Class-Path: libs/FlatLaf.jar
+

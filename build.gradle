@@ -1,0 +1,59 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+}
+
+group = 'com.localchat'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        java {
+            setSrcDirs(['src'])
+        }
+    }
+    test {
+        java {
+            setSrcDirs(['testsrc'])
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.formdev:flatlaf:2.6'
+    implementation 'org.slf4j:slf4j-api:2.0.12'
+    implementation 'ch.qos.logback:logback-classic:1.4.14'
+    runtimeOnly 'org.bouncycastle:bcprov-jdk18on:1.78.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+    testImplementation 'org.mockito:mockito-core:5.11.0'
+}
+
+application {
+    mainClass = 'LocalChatApp'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 17
+}
+
+shadowJar {
+    archiveBaseName.set('LocalChatApp')
+    archiveClassifier.set('')
+    archiveVersion.set('')
+    destinationDirectory.set(file('dist/App'))
+}
+
+tasks.withType(Test).configureEach {
+    useJUnitPlatform()
+}

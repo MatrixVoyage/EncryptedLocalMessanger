@@ -1,0 +1,3 @@
+Main-Class: EncryptedMultiServer
+Class-Path: libs/FlatLaf.jar
+

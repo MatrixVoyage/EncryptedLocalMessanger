@@ -1,0 +1,26 @@
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <outfile>dist/LocalChatApp.exe</outfile>
+  <jar>dist/App/LocalChatApp.jar</jar>
+  <errTitle>Encrypted Local Messenger</errTitle>
+  <chdir>dist</chdir>
+  <priority>normal</priority>
+  <downloadUrl>https://adoptium.net/</downloadUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <icon>src/main/resources/icon.ico</icon>
+  <jre>
+    <path></path>
+    <minVersion>11</minVersion>
+    <bundledJreAsFallback>true</bundledJreAsFallback>
+    <opt>-Dfile.encoding=UTF-8</opt>
+  </jre>
+  <!-- Optional: rely on manifest Class-Path or uncomment below to set it explicitly. -->
+  <!--
+  <classPath>
+    <mainClass>LocalChatApp</mainClass>
+    <cp>libs/FlatLaf.jar</cp>
+  </classPath>
+  -->
+</launch4jConfig>
